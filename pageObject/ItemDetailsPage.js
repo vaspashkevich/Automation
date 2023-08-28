@@ -14,7 +14,7 @@ class ItemDetailsPage extends BasePage {
         }
     };
 
-    showCartBtnSelector = {
+    showCartBtn = {
         "elementProperties": {
             "viewName": "sap.ui.demo.cart.view.Product",
             "metadata": "sap.ui.core.Icon",
@@ -24,7 +24,11 @@ class ItemDetailsPage extends BasePage {
 
     async addItemToCart() {
         await ui5.userInteraction.click(this.addToCartBtn);
-    
+    }
+
+    async showCart() {
+        await ui5.userInteraction.click(this.showCartBtn);
+        await browser.pause(5000);
     }
 }
 
