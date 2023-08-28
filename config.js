@@ -15,18 +15,14 @@ exports.config = {
   },
 
   specs: [
-    
-    [
-     "./spec/testapp.spec.js",
-     
-    ],
+     "./spec/addRemoveFromCart.js",
   ],
 
 
   framework: "mocha",
   mochaOpts: {
    
-    timeout: 100000, // 60 seconds
+    timeout: 60000, // 60 seconds
     bail: true,
   },
 
