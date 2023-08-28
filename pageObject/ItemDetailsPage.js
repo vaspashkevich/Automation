@@ -28,7 +28,6 @@ class ItemDetailsPage extends BasePage {
 
     async showCart() {
         await ui5.userInteraction.click(this.showCartBtn);
-        await browser.pause(5000);
     }
 }
 
