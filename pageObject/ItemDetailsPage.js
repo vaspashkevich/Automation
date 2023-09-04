@@ -1,4 +1,4 @@
-var BasePage = require("./BasePage");
+var BasePage = require("./BasePage"); 
 
 class ItemDetailsPage extends BasePage {
 
@@ -21,6 +21,15 @@ class ItemDetailsPage extends BasePage {
             "src": "sap-icon://cart"
         }
     };
+    
+    itemHeader = {
+        "elementProperties": {
+            "viewName": "sap.ui.demo.cart.view.Product",
+            "metadata": "sap.m.ObjectHeader"
+        }
+    };
+
+    
 
     async addItemToCart() {
         await ui5.userInteraction.click(this.addToCartBtn);
@@ -28,6 +37,14 @@ class ItemDetailsPage extends BasePage {
 
     async showCart() {
         await ui5.userInteraction.click(this.showCartBtn);
+    }
+
+    async getItemPrice() {
+    return await ui5.control.getProperty(this.itemHeader, "number");
+    }
+
+    async getItemName() {
+    return await ui5.control.getProperty(this.itemHeader, "title");
     }
 }
 

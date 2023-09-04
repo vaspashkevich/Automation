@@ -63,5 +63,13 @@ exports.config = {
     },
   ],
 
- 
+  params: {
+    import: {
+        references: "./data/reference.json"
+    },
+    export: {
+        references: "./data/reference.json"
+    }
+  },
+  
 };
