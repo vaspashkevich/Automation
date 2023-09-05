@@ -19,12 +19,10 @@ describe("Add/remove items to card", async function () {
 
   it('Step 3: Show cart', async function () {
     await itemDetailsPage.showCart();
-    // await browser.pause(5000)
   })
 
   it('Step 4: Click proceed button', async function () {
     await CartPage.pressProceedBtn();
-
   })
 
   it('Step 5: Click Step2 button', async function () {
@@ -32,48 +30,47 @@ describe("Add/remove items to card", async function () {
   })
 
   it('Step 6: Click CreditCard button', async function () {
-    await CheckOutPage.CreditCardBtn();
+    await CheckOutPage.pressCreditCardBtn();
   })
 
   it('Step 7: Click Step3 button', async function () {
-    await CheckOutPage.Step3Btn();
+    await CheckOutPage.pressStep3Btn();
   })
 
-  it('Step 8: Fill in CardholdersName', async function () {
-    const valueToEnter = "Marya Malyshava";
-    // await ui5.userInteraction.clearAndFill(CheckOutPage.CreditCardDetailsCardholderName, orderCart. creditCardDetails. CreditCardDetailsCardholderName);
-    await CheckOutPage.fillCardholderName(valueToEnter);
-    // await util.browser.sleep(3000);
-    // await ui5.assertion.expectValueToBe(CheckOutPage.CreditCardDetailsCardholderName, "Marya Malyshava");
-  })
-
-  it('Step 9: Fill in CreditCardNumber', async function () {
-    const valueToEnter = "1111222233334444";
-    // await ui5.userInteraction.clearAndFill(CheckOutPage.CreditCardDetailsCardNumber, orderCart. creditCardDetails. CreditCardDetailsCardNumber);
-    await CheckOutPage.fillCardNumber(valueToEnter);
-  });
-
-  it('Step 10: Fill in CreditCardSecurityCode', async function () {
-    const valueToEnter = "555";
-    // await ui5.userInteraction.clearAndFill(CheckOutPage.CreditCardDetailsSecurityCode, orderCart. creditCardDetails. CreditCardDetailsSecurityCode);
-    await CheckOutPage.fillCardSecurityCode(valueToEnter);
-  });
-
-  it('Step 11: Fill in CreditCardExpirationDate', async function () {
-    const valueToEnter = "12/2023";
-    // await ui5.userInteraction.clearAndFill(CheckOutPage.CreditCardDetailsExpirationDate, orderCart.creditCardDetails. CreditCardDetailsExpirationDate);
-    await CheckOutPage.fillCardExpirationDate(valueToEnter);
+  it('Step 8: Fill in Payment Info', async function () {
+    await CheckOutPage.enterCardholderName(orderCart.creditCardDetails.creditCardDetailsCardholderName);
+    await CheckOutPage.enterCardNumber(orderCart.creditCardDetails.creditCardDetailsCardNumber);
+    await CheckOutPage.enterCardSecurityCode(orderCart.creditCardDetails.creditCardDetailsSecurityCode);
+    await CheckOutPage.enterCardExpirationDate(orderCart.creditCardDetails.creditCardDetailsExpirationDate);
     await common.userInteraction.pressTab();
   });
 
   it('Step 12: Click Step4 button', async function () {
-    await CheckOutPage.clickStep4Btn();
+    await CheckOutPage.pressStep4Btn();
   });
 
   it('Step 13: Fill in InvoiceAddress', async function () {
-    const valueToEnter = "Nezavisimosti av., 165, 56";
-    // await ui5.userInteraction.clearAndFill(CheckOutPage.InvoiceAddress, orderCart.creditCardDetails.InvoiceAddress);
-    await CheckOutPage.fillInvoiceAddress(valueToEnter);
+    const valueToEnter = "Nezavisimosti av 165 56";
+    await CheckOutPage.enterInvoiceAddress(valueToEnter);
+  });
+
+  it('Step 14: Fill in InvoiceAddressCity', async function () {
+    const valueToEnter = "Minsk";
+    await CheckOutPage.enterInvoiceAddressCity(valueToEnter);
+  });
+
+  it('Step 15: Fill in InvoiceAddressZip', async function () {
+    const valueToEnter = "220141";
+    await CheckOutPage.enterInvoiceAddressZip(valueToEnter);
+  });
+
+  it('Step 16: Fill in InvoiceAddressCountry', async function () {
+    const valueToEnter = "Belarus";
+    await CheckOutPage.enterInvoiceAddressCountry(valueToEnter);
+  });
+
+  it('Step 17: Click Step5 button', async function () {
+    await CheckOutPage.pressStep5Btn();
   });
 
 });

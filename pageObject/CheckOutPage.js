@@ -10,11 +10,8 @@ class CheckOutPage extends BasePage {
             "id": "*contentsStep-nextButton"
         }
     };
-    async pressStep2Btn() {
-        await ui5.userInteraction.click(this.step2Button);
-    }
 
-    PaymentTypeCreditCardBtn = {
+    paymentTypeCreditCardBtn = {
         "elementProperties": {
             "viewName": "sap.ui.demo.cart.view.Checkout",
             "metadata": "sap.m.Button",
@@ -22,10 +19,7 @@ class CheckOutPage extends BasePage {
         }
     };
 
-    async CreditCardBtn() {
-        await ui5.userInteraction.clickAndRetry(this.PaymentTypeCreditCardBtn);
-    }
-    PaymentTypeStep3Btn = {
+    paymentTypeStep3Btn = {
         "elementProperties": {
             "viewName": "sap.ui.demo.cart.view.Checkout",
             "metadata": "sap.m.Button",
@@ -33,76 +27,55 @@ class CheckOutPage extends BasePage {
         }
     };
 
-    async Step3Btn() {
-        await ui5.userInteraction.click(this.PaymentTypeStep3Btn);
-    }
-
-    CreditCardDetailsCardholderName = {
+    creditCardDetailsCardholderName = {
         "elementProperties": {
             "viewName": "sap.ui.demo.cart.view.Checkout",
             "metadata": "sap.m.Input",
             "id": "*creditCardHolderName"
         }
     };
-    async fillCardholderName(name) {
-        await ui5.userInteraction.clearAndFill(this.CreditCardDetailsCardholderName, name)
-    }
 
-    CreditCardDetailsCardNumber = {
+    creditCardDetailsCardNumber = {
         "elementProperties": {
             "viewName": "sap.ui.demo.cart.view.Checkout",
             "metadata": "sap.m.MaskInput",
             "id": "*creditCardNumber"
         }
     };
-    async fillCardNumber(number) {
-        await ui5.userInteraction.clearAndFill(this.CreditCardDetailsCardNumber, number)
-    }
 
-    CreditCardDetailsSecurityCode = {
+    creditCardDetailsSecurityCode = {
         "elementProperties": {
             "viewName": "sap.ui.demo.cart.view.Checkout",
             "metadata": "sap.m.MaskInput",
             "id": "*creditCardSecurityNumber"
         }
     };
-    async fillCardSecurityCode(code) {
-        await ui5.userInteraction.clearAndFill(this.CreditCardDetailsSecurityCode, code);
-    }
 
-    CreditCardDetailsExpirationDate = {
+    creditCardDetailsExpirationDate = {
         "elementProperties": {
             "viewName": "sap.ui.demo.cart.view.Checkout",
             "metadata": "sap.m.DatePicker",
             "id": "*creditCardExpirationDate"
         }
     };
-    async fillCardExpirationDate(date) {
-        await ui5.userInteraction.clearAndFill(this.CreditCardDetailsExpirationDate, date);
-    }
 
-    CreditCardDetailsStep4Btn = {
+    creditCardDetailsStep4Btn = {
         "elementProperties": {
             "viewName": "sap.ui.demo.cart.view.Checkout",
             "metadata": "sap.m.Button",
             "id": "*creditCardStep-nextButton"
         }
     };
-    async clickStep4Btn() {
-        await ui5.userInteraction.click(this.CreditCardDetailsStep4Btn);
-    }
-    InvoiceAddress = {
+
+    invoiceAddress = {
         "elementProperties": {
             "viewName": "sap.ui.demo.cart.view.Checkout",
             "metadata": "sap.m.Input",
             "id": "*invoiceAddressAddress"
         }
     };
-    async fillInvoiceAddress(adress) {
-        await ui5.userInteraction.clearAndFill(this.InvoiceAddress, adress);
-    }
 
-    InvoiceAddressCity = {
+    invoiceAddressCity = {
         "elementProperties": {
             "viewName": "sap.ui.demo.cart.view.Checkout",
             "metadata": "sap.m.Input",
@@ -110,7 +83,7 @@ class CheckOutPage extends BasePage {
         }
     };
 
-    InvoiceAddressZip = {
+    invoiceAddressZip = {
         "elementProperties": {
             "viewName": "sap.ui.demo.cart.view.Checkout",
             "metadata": "sap.m.Input",
@@ -118,7 +91,7 @@ class CheckOutPage extends BasePage {
         }
     };
 
-    InvoiceAddressCountry = {
+    invoiceAddressCountry = {
         "elementProperties": {
             "viewName": "sap.ui.demo.cart.view.Checkout",
             "metadata": "sap.m.Input",
@@ -126,17 +99,15 @@ class CheckOutPage extends BasePage {
         }
     };
 
-    InvoiceAddressCityStep5Btn = {
+    invoiceAddressCityStep5Btn = {
         "elementProperties": {
             "viewName": "sap.ui.demo.cart.view.Checkout",
             "metadata": "sap.m.Button",
             "id": "*invoiceStep-nextButton"
         }
     };
-    async Step5Btn() {
-        await ui5.userInteraction.click(this.InvoiceAddressCityStep5Btn);
-    }
-    DeliveryTypedStandardBtn = {
+
+    deliveryTypedStandardBtn = {
         "elementProperties": {
             "viewName": "sap.ui.demo.cart.view.Checkout",
             "metadata": "sap.m.Button",
@@ -144,39 +115,99 @@ class CheckOutPage extends BasePage {
         }
     };
 
-    async DeliveryTypeBtn() {
-        await ui5.userInteraction.click(this.DeliveryTypedStandardBtn);
-    }
-    DeliveryTypedOrderSummaryBtn = {
+    deliveryTypedOrderSummaryBtn = {
         "elementProperties": {
             "viewName": "sap.ui.demo.cart.view.Checkout",
             "metadata": "sap.m.Button",
             "id": "*invoiceStep-nextButton"
         }
     };
-    async OrderSummaryBtn() {
-        await ui5.userInteraction.click(this.DeliveryTypedOrderSummaryBtn);
-    }
 
-    DeliveryTypedOrderSubmitBtn = {
+    deliveryTypedOrderSubmitBtn = {
         "elementProperties": {
             "viewName": "sap.ui.demo.cart.view.Checkout",
             "metadata": "sap.m.Button",
             "id": "*deliveryTypeStep-nextButton"
         }
     };
-    async OrderSubmitBtn() {
-        await ui5.userInteraction.click(this.DeliveryTypedOrderSubmitBtn);
-    }
 
-    OrderCreationCompletionBtn = {
+    orderCreationCompletionBtn = {
         "elementProperties": {
             "metadata": "sap.m.Button",
             "text": "Yes"
         }
     };
-    async CompletionBtn() {
-        await ui5.userInteraction.click(this.DeliveryTypedOrderSubmitBtn);
+
+    async pressStep2Btn() {
+        await ui5.userInteraction.click(this.step2Button);
     }
+
+    async pressCreditCardBtn() {
+        await ui5.userInteraction.clickAndRetry(this.paymentTypeCreditCardBtn);
+    }
+
+    async pressStep3Btn() {
+        await ui5.userInteraction.click(this.paymentTypeStep3Btn);
+    }
+
+    async enterCardholderName(name) {
+        await ui5.userInteraction.clearAndFill(this.creditCardDetailsCardholderName, name)
+    }
+
+    async enterCardNumber(number) {
+        await ui5.userInteraction.clearAndFill(this.creditCardDetailsCardNumber, number)
+    }
+
+    async enterCardSecurityCode(code) {
+        await ui5.userInteraction.clearAndFill(this.creditCardDetailsSecurityCode, code);
+    }
+
+    async enterCardExpirationDate(date) {
+        await ui5.userInteraction.clearAndFill(this.creditCardDetailsExpirationDate, date);
+    }
+
+    async enterInvoiceAddress(adress) {
+        await ui5.userInteraction.clearAndFill(this.invoiceAddress, adress);
+    }
+
+    async pressStep4Btn() {
+        await ui5.userInteraction.click(this.creditCardDetailsStep4Btn);
+    }
+
+    async enterInvoiceAddress(adress) {
+        await ui5.userInteraction.clearAndFill(this.invoiceAddress, adress);
+    }
+    async enterInvoiceAddressCity(city) {
+        await ui5.userInteraction.clearAndFill(this.invoiceAddressCity, city);
+    }
+
+    async enterInvoiceAddressZip(zip) {
+        await ui5.userInteraction.clearAndFill(this.invoiceAddressZip, zip);
+    }
+
+    async enterInvoiceAddressCountry(country) {
+        await ui5.userInteraction.clearAndFill(this.invoiceAddressCountry, country);
+    }
+
+    async pressStep5Btn() {
+        await ui5.userInteraction.click(this.invoiceAddressCityStep5Btn);
+    }
+
+    async pressDeliveryTypeBtn() {
+        await ui5.userInteraction.click(this.deliveryTypedStandardBtn);
+    }
+
+    async pressOrderSummaryBtn() {
+        await ui5.userInteraction.click(this.deliveryTypedOrderSummaryBtn);
+    }
+
+    async pressOrderSubmitBtn() {
+        await ui5.userInteraction.click(this.deliveryTypedOrderSubmitBtn);
+    }
+
+    async pressCompletionBtn() {
+        await ui5.userInteraction.click(this.orderCreationCompletionBtn);
+    }
+
 }
 module.exports = new CheckOutPage();
