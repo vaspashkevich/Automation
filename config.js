@@ -15,7 +15,8 @@ exports.config = {
   },
 
   specs: [
-     "./spec/addRemoveFromCart.js",
+    //  "./spec/addRemoveFromCart.js",
+     "./spec/createNewOrderCart.js",
   ],
 
   logLevel: 'warn',

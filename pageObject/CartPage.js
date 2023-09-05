@@ -1,6 +1,15 @@
 var BasePage = require("./BasePage");
 
 class CartPage extends BasePage {
+
+  proceedBtnSelector = {
+    "elementProperties": {
+      "viewName": "sap.ui.demo.cart.view.Cart",
+      "metadata": "sap.m.Button",
+      "id": "*proceedButton"
+    }
+  };
+
   ItemInCart = {
     "elementProperties": {
       "viewName": "sap.ui.demo.cart.view.Cart",
@@ -29,6 +38,10 @@ class CartPage extends BasePage {
       "text": "Delete"
     }
   };
+
+  async pressProceedBtn() {
+    await ui5.userInteraction.click(this.proceedBtnSelector);
+  }
 
   async editCart() {
     await ui5.userInteraction.click(this.editCartBtn);

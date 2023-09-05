@@ -1,0 +1,16 @@
+{
+  "creditCardDetails": {
+    "creditCardDetailsCardholderName": "Marya Malyshava",
+    "creditCardDetailsCardNumber": "1111222233334444",
+    "creditCardDetailsSecurityCode": "555",
+    "creditCardDetailsExpirationDate": "12/2023",
+    "invoiceAddress": "Nezavisimosti av 165 56"
+  },
+
+  "InvoiceAddressDetails": {
+    "invoiceAddress": "Nezavisimosti av 165 56",
+    "invoiceAddressCity": "Minsk",
+    "invoiceAddressZip": "220141",
+    "invoiceAddressCountry": "Belarus"
+  }
+}
