@@ -45,32 +45,31 @@ describe("Add/remove items to card", async function () {
     await common.userInteraction.pressTab();
   });
 
-  it('Step 12: Click Step4 button', async function () {
+  it('Step 9: Click Step4 button', async function () {
     await CheckOutPage.pressStep4Btn();
   });
 
-  it('Step 13: Fill in InvoiceAddress', async function () {
+  it('Step 10: Fill in InvoiceAddress', async function () {
     const valueToEnter = "Nezavisimosti av 165 56";
     await CheckOutPage.enterInvoiceAddress(valueToEnter);
   });
 
-  it('Step 14: Fill in InvoiceAddressCity', async function () {
+  it('Step 11: Fill in InvoiceAddressCity', async function () {
     const valueToEnter = "Minsk";
     await CheckOutPage.enterInvoiceAddressCity(valueToEnter);
   });
 
-  it('Step 15: Fill in InvoiceAddressZip', async function () {
+  it('Step 12: Fill in InvoiceAddressZip', async function () {
     const valueToEnter = "220141";
     await CheckOutPage.enterInvoiceAddressZip(valueToEnter);
   });
 
-  it('Step 16: Fill in InvoiceAddressCountry', async function () {
+  it('Step 13: Fill in InvoiceAddressCountry', async function () {
     const valueToEnter = "Belarus";
     await CheckOutPage.enterInvoiceAddressCountry(valueToEnter);
   });
 
-  it('Step 17: Click Step5 button', async function () {
+  it('Step 14: Click Step5 button', async function () {
     await CheckOutPage.pressStep5Btn();
   });
-
 });
