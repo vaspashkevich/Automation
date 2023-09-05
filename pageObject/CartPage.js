@@ -4,8 +4,7 @@ class CartPage extends BasePage {
     ItemInCart = {
         "elementProperties": {
             "viewName": "sap.ui.demo.cart.view.Cart",
-            "metadata": "sap.m.ObjectListItem",
-            
+            "metadata": "sap.m.ObjectListItem"
         }
     };
 
@@ -17,13 +16,10 @@ class CartPage extends BasePage {
         }
     };
 
-    
-
     deleteItemFromCartBtn = {
         "elementProperties": {
             "viewName": "sap.ui.demo.cart.view.Cart",
-            "metadata": "sap.ui.core.Icon",
-            "bindingContextPath": "/cartEntries/HT-6101"
+            "metadata": "sap.ui.core.Icon"
         }
     };
 
@@ -35,17 +31,16 @@ class CartPage extends BasePage {
     };
 
     async editCart() {
-        await ui5.userInteraction.click(this.editCartBtn)
+        await ui5.userInteraction.click(this.editCartBtn);
     }
 
     async deleteItemFromCart(index) {
-        await ui5.userInteraction.click(this.deleteItemFromCartBtn)
+        await ui5.userInteraction.click(this.deleteItemFromCartBtn, index);
     }
 
     async confirmDelete() {
-        await ui5.userInteraction.click(this.confirmDeleteBtn)
+        await ui5.userInteraction.click(this.confirmDeleteBtn);
     }
-
 
     async getCartItemName(index) {
         const elem = await ui5.element.getDisplayed(this.ItemInCart, index);
@@ -57,7 +52,6 @@ class CartPage extends BasePage {
         let cartQuantity = await ui5.control.getProperty(elem, "intro");
         cartQuantity = cartQuantity.slice(0, -2);
         return Number(cartQuantity);
-        // return cartQuantity;
     }
 
     async getCartItemPrice(index) {
@@ -65,6 +59,10 @@ class CartPage extends BasePage {
         return await ui5.control.getProperty(elem, "number");
     }
 
+    async getCartItemsArray() {
+        console.log(await ui5.element.getDisplayed(this.ItemInCart));
+        return await ui5.element.getAllDisplayed(this.ItemInCart);
+    }
 };
 
 module.exports = new CartPage();

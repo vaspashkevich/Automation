@@ -28,9 +28,7 @@ class ItemDetailsPage extends BasePage {
             "metadata": "sap.m.ObjectHeader"
         }
     };
-
     
-
     async addItemToCart() {
         await ui5.userInteraction.click(this.addToCartBtn);
     }

@@ -18,7 +18,8 @@ exports.config = {
      "./spec/addRemoveFromCart.js",
   ],
 
-
+  logLevel: 'warn',
+  
   framework: "mocha",
   mochaOpts: {
    

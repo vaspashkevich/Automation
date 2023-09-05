@@ -62,12 +62,11 @@ class CatalogPage extends BasePage {
 
     async selectAccesoriesCategory() {
         await ui5.userInteraction.click(this.accesoriesCategory);
-        // await ui5.userInteraction.click(selector);
     }
 
     async selectCatalogItem(index) {
         await ui5.userInteraction.click(this.CatalogItem, index);
     }
-
 }
+
 module.exports = new CatalogPage();

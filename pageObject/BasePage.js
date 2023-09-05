@@ -20,7 +20,6 @@ class BasePage {
         
         return references[valueName];
     }
-
 }
 
 module.exports = BasePage;

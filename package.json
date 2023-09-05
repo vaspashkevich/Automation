@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "@sap_oss/wdio-qmate-service": "^2.6.4",
+    "chai": "^4.3.8",
     "install": "^0.13.0",
     "npm": "^9.8.1"
   },

@@ -16,10 +16,8 @@ class ShopItemsArray extends Array {
   }
 
   async removeItem(index) {
-    // let index = await this.getIndex(name);
-    this.splice[index, 1];
+    this.splice(index, 1);
   }
-
 
   async getIndex(name) {
     return this.findIndex(obj => obj.name === name);
@@ -30,9 +28,12 @@ class ShopItemsArray extends Array {
   }
 
   async equals(arrayToCompare) {
-    arrayToCompare.sortByName();
+    return this.toSortedString() == arrayToCompare.toSortedString();
+  }
+
+  async toSortedString() {
     this.sortByName();
-    return JSON.stringify(this) == JSON.stringify(arrayToCompare);
+    return JSON.stringify(this);
   }
 }
 
