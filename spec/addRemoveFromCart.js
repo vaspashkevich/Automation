@@ -6,7 +6,7 @@ const ShopItemsArray = require('../dataModel/ShopItemsArray.js')
 describe("Add/remove items to card", async function () {
   let addedItems = new ShopItemsArray();
   let cartItems = new ShopItemsArray();
- 
+
   it('Step 1: Open the application', async function () {
     await catalogPage.openApplication();
   });
@@ -44,8 +44,8 @@ describe("Add/remove items to card", async function () {
     let price = await itemDetailsPage.getItemPrice();
     await addedItems.addItem(name, price, 1);
     await itemDetailsPage.addItemToCart();
-  });  
-  
+  });
+
   it('Step 6: Show cart', async function () {
     await itemDetailsPage.showCart();
   });
@@ -63,7 +63,7 @@ describe("Add/remove items to card", async function () {
   it('Step 9: Collect cart items info', async function () {
     let cartItemsArray = await cartPage.getCartItemsArray();
     let cartItemsQuantity = cartItemsArray.length;
-    
+
     for (let i = 0; i < cartItemsQuantity; i++) {
       let name = await cartPage.getCartItemName(i);
       let price = await cartPage.getCartItemPrice(i);

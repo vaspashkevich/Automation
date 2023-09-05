@@ -1,68 +1,68 @@
-var BasePage = require("./BasePage"); 
+var BasePage = require("./BasePage");
 
 class CartPage extends BasePage {
-    ItemInCart = {
-        "elementProperties": {
-            "viewName": "sap.ui.demo.cart.view.Cart",
-            "metadata": "sap.m.ObjectListItem"
-        }
-    };
-
-    editCartBtn =  {
-        "elementProperties": {
-            "viewName": "sap.ui.demo.cart.view.Cart",
-            "metadata": "sap.ui.core.Icon",
-            "id": "*editButton-img"
-        }
-    };
-
-    deleteItemFromCartBtn = {
-        "elementProperties": {
-            "viewName": "sap.ui.demo.cart.view.Cart",
-            "metadata": "sap.ui.core.Icon"
-        }
-    };
-
-    confirmDeleteBtn = {
-        "elementProperties": {
-            "metadata": "sap.m.Button",
-            "text": "Delete"
-        }
-    };
-
-    async editCart() {
-        await ui5.userInteraction.click(this.editCartBtn);
+  ItemInCart = {
+    "elementProperties": {
+      "viewName": "sap.ui.demo.cart.view.Cart",
+      "metadata": "sap.m.ObjectListItem"
     }
+  };
 
-    async deleteItemFromCart(index) {
-        await ui5.userInteraction.click(this.deleteItemFromCartBtn, index);
+  editCartBtn = {
+    "elementProperties": {
+      "viewName": "sap.ui.demo.cart.view.Cart",
+      "metadata": "sap.ui.core.Icon",
+      "id": "*editButton-img"
     }
+  };
 
-    async confirmDelete() {
-        await ui5.userInteraction.click(this.confirmDeleteBtn);
+  deleteItemFromCartBtn = {
+    "elementProperties": {
+      "viewName": "sap.ui.demo.cart.view.Cart",
+      "metadata": "sap.ui.core.Icon"
     }
+  };
 
-    async getCartItemName(index) {
-        const elem = await ui5.element.getDisplayed(this.ItemInCart, index);
-        return await ui5.control.getProperty(elem, "title");
+  confirmDeleteBtn = {
+    "elementProperties": {
+      "metadata": "sap.m.Button",
+      "text": "Delete"
     }
+  };
 
-    async getCartItemQuantity(index) {
-        const elem = await ui5.element.getDisplayed(this.ItemInCart, index);
-        let cartQuantity = await ui5.control.getProperty(elem, "intro");
-        cartQuantity = cartQuantity.slice(0, -2);
-        return Number(cartQuantity);
-    }
+  async editCart() {
+    await ui5.userInteraction.click(this.editCartBtn);
+  }
 
-    async getCartItemPrice(index) {
-        const elem = await ui5.element.getDisplayed(this.ItemInCart, index);
-        return await ui5.control.getProperty(elem, "number");
-    }
+  async deleteItemFromCart(index) {
+    await ui5.userInteraction.click(this.deleteItemFromCartBtn, index);
+  }
 
-    async getCartItemsArray() {
-        console.log(await ui5.element.getDisplayed(this.ItemInCart));
-        return await ui5.element.getAllDisplayed(this.ItemInCart);
-    }
+  async confirmDelete() {
+    await ui5.userInteraction.click(this.confirmDeleteBtn);
+  }
+
+  async getCartItemName(index) {
+    const elem = await ui5.element.getDisplayed(this.ItemInCart, index);
+    return await ui5.control.getProperty(elem, "title");
+  }
+
+  async getCartItemQuantity(index) {
+    const elem = await ui5.element.getDisplayed(this.ItemInCart, index);
+    let cartQuantity = await ui5.control.getProperty(elem, "intro");
+    cartQuantity = cartQuantity.slice(0, -2);
+    return Number(cartQuantity);
+  }
+
+  async getCartItemPrice(index) {
+    const elem = await ui5.element.getDisplayed(this.ItemInCart, index);
+    return await ui5.control.getProperty(elem, "number");
+  }
+
+  async getCartItemsArray() {
+    console.log(await ui5.element.getDisplayed(this.ItemInCart));
+    return await ui5.element.getAllDisplayed(this.ItemInCart);
+  }
 };
 
 module.exports = new CartPage();
