@@ -1,8 +1,8 @@
 const QmateService = require("@sap_oss/wdio-qmate-service");
 
 exports.config = {
-    
-  baseUrl:"https://sapui5.hana.ondemand.com/test-resources/sap/m/demokit/cart/webapp/index.html?sap-ui-theme=sap_horizon",
+
+  baseUrl: "https://sapui5.hana.ondemand.com/test-resources/sap/m/demokit/cart/webapp/index.html?sap-ui-theme=sap_horizon",
 
   after: function (capabilities, specs) {
     // Add the following line to keep the browser open after the test execution.
@@ -11,19 +11,19 @@ exports.config = {
     // If you need to perform additional actions after the test execution, add them here.
 
     // Close the browser after the pause (optional).
-   
+
   },
 
   specs: [
-    //  "./spec/addRemoveFromCart.js",
-     "./spec/createNewOrderCart.js",
+    "./spec/addRemoveFromCart.js",
+    "./spec/createNewOrderCart.js",
   ],
 
   logLevel: 'warn',
-  
+
   framework: "mocha",
   mochaOpts: {
-   
+
     timeout: 60000, // 60 seconds
     bail: true,
   },
@@ -67,11 +67,11 @@ exports.config = {
 
   params: {
     import: {
-        references: "./data/reference.json"
+      references: "./data/reference.json"
     },
     export: {
-        references: "./data/reference.json"
+      references: "./data/reference.json"
     }
   },
-  
+
 };

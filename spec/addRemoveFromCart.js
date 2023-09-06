@@ -1,7 +1,7 @@
-const catalogPage = require('../pageObject/catalogPage.js')
-const itemDetailsPage = require('../pageObject/ItemDetailsPage.js')
-const cartPage = require('../pageObject/CartPage.js')
-const ShopItemsArray = require('../dataModel/ShopItemsArray.js')
+const catalogPage = require('../pageObject/catalogPage.js');
+const itemDetailsPage = require('../pageObject/ItemDetailsPage.js');
+const cartPage = require('../pageObject/CartPage.js');
+const ShopItemsArray = require('../dataModel/ShopItemsArray.js');
 
 describe("Add/remove items to card", async function () {
   let addedItems = new ShopItemsArray();
