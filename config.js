@@ -15,10 +15,12 @@ exports.config = {
   },
 
   specs: [
-     "./spec/addRemoveFromCart.js",
+    //  "./spec/addRemoveFromCart.js",
+     "./spec/createNewOrderCart.js",
   ],
 
-
+  logLevel: 'warn',
+  
   framework: "mocha",
   mochaOpts: {
    
@@ -63,5 +65,13 @@ exports.config = {
     },
   ],
 
- 
+  params: {
+    import: {
+        references: "./data/reference.json"
+    },
+    export: {
+        references: "./data/reference.json"
+    }
+  },
+  
 };

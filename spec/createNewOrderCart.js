@@ -8,18 +8,20 @@ var orderCart = require('../data/orderCart.json');
 describe("Add/remove items to card", async function () {
 
   it('Step 1: Open the application', async function () {
-    await ui5.navigation.navigateToApplication("categories");
-  })
+    await catalogPage.openApplication();
+  });
 
-  it('Step 2: Add Item to the cart', async function () {
+  it('Step 2: Add first item to the cart', async function () {
     await catalogPage.selectAccesoriesCategory();
-    await catalogPage.selectFirstItem();
-    await itemDetailsPage.addItemToCart()
-  })
+    await catalogPage.filterByAvailability();
+
+    await catalogPage.selectCatalogItem(0);
+    await itemDetailsPage.addItemToCart();
+  });
 
   it('Step 3: Show cart', async function () {
     await itemDetailsPage.showCart();
-  })
+  });
 
   it('Step 4: Click proceed button', async function () {
     await CartPage.pressProceedBtn();
@@ -56,7 +58,8 @@ describe("Add/remove items to card", async function () {
     await CheckOutPage.enterInvoiceAddressCountry(orderCart.InvoiceAddressDetails.invoiceAddressCountry);
   });
 
-  it('Step 14: Click Step5 button', async function () {
+  it('Step 11: Click Step 5 button', async function () {
+    await CheckOutPage.clickOutOfField()
     await CheckOutPage.pressStep5Btn();
   });
 });
