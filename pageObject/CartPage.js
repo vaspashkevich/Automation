@@ -2,7 +2,6 @@ var BasePage = require("./BasePage");
 const cartSelectors = require('../selectors/cartSelectors.js');
 
 class CartPage extends BasePage {
-
   async pressProceedBtn() {
     await ui5.userInteraction.click(cartSelectors.proceedBtnSelector);
   }

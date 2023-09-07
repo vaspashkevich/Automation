@@ -3,12 +3,9 @@ const itemDetailsPage = require('../pageObject/ItemDetailsPage.js')
 const CheckOutPage = require('../pageObject/CheckOutPage.js')
 const catalogPage = require('../pageObject/CatalogPage.js')
 
-var BasePage = require("../pageObject/BasePage.js");
-
-class Navigation extends BasePage {
-
+class Navigation {
   async application() {
-  await catalogPage.openApplication();
+    await catalogPage.openApplication();
   }
 
   async cart() {
@@ -21,6 +18,26 @@ class Navigation extends BasePage {
 
   async checkoutPage() {
     await cartPage.pressProceedBtn();
+  }
+
+  async confirmOrder() {
+    await CheckOutPage.pressStep2Btn();
+  }
+
+  async confirmPaymentMethod() {
+    await CheckOutPage.pressStep3Btn();
+  }
+
+  async confirmCreditCartData() {
+    await CheckOutPage.pressStep4Btn();
+  }
+
+  async clickOutOfField() {
+    await CheckOutPage.clickOutOfField();
+  }
+
+  async confirmCustomerData() {
+    await CheckOutPage.pressStep5Btn();
   }
 }
 
