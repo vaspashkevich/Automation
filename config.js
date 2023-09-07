@@ -15,9 +15,8 @@ exports.config = {
   },
 
   specs: [
-    // "./spec/addRemoveFromCart.js",
-    "./spec/createNewOrderCart.js",
-    // "./spec/applicationTest.js",
+    "./spec/addRemoveFromCart.js",
+    "./spec/createNewOrderCart.js"
   ],
 
   logLevel: 'warn',
@@ -29,7 +28,7 @@ exports.config = {
     bail: true,
   },
 
-  maxInstances: 1,
+  maxInstances: 3,
 
 
   services: [[QmateService], ["chromedriver"]],
