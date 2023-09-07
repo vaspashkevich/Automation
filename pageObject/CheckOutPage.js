@@ -73,8 +73,5 @@ class CheckOutPage extends BasePage {
   async pressCompletionBtn() {
     await ui5.userInteraction.click(checkOutSelectors.orderCreationCompletionBtn);
   }
-  async clickOutOfField() {
-    await ui5.userInteraction.click(checkOutSelectors.stepOutOfField);
-  }
 }
 module.exports = new CheckOutPage();

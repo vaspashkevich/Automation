@@ -32,10 +32,6 @@ class Navigation {
     await checkOutPage.pressStep4Btn();
   }
 
-  async clickOutOfField() {
-    await checkOutPage.clickOutOfField();
-  }
-
   async confirmCustomerData() {
     await checkOutPage.pressStep5Btn();
   }

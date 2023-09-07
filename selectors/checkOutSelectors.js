@@ -133,19 +133,6 @@ class CheckoutSelectors {
       "text": "Yes"
     }
   };
-
-  stepOutOfField = {
-    "elementProperties": {
-      "viewName": "sap.ui.demo.cart.view.Checkout",
-      "metadata": "sap.ui.layout.Grid",
-      "vSpacing": "0"
-    },
-    "ancestorProperties": {
-      "metadata": "sap.m.WizardStep",
-      "viewName": "sap.ui.demo.cart.view.Checkout",
-      "id": "*invoiceStep"
-    }
-  };
 }
 
 module.exports = new CheckoutSelectors();

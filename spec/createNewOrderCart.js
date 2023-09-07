@@ -48,7 +48,6 @@ describe("Add/remove items to card", async function () {
   });
 
   it('Step 11: Click Step 5 button', async function () {
-    await goTo.clickOutOfField();
     await goTo.confirmCustomerData();
   });
 });
