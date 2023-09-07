@@ -1,48 +1,22 @@
 var BasePage = require("./BasePage");
+const itemDetailsSelectors = require('../selectors/itemDetailsSelectors.js');
 
 class ItemDetailsPage extends BasePage {
 
-  viewName = "sap.ui.demo.cart.view.Welcome";
-
-  addToCartBtn = {
-    "elementProperties": {
-      "viewName": "sap.ui.demo.cart.view.Product",
-      "metadata": "sap.m.Button",
-      "text": [{
-        "path": "i18n>addToCartShort"
-      }]
-    }
-  };
-
-  showCartBtn = {
-    "elementProperties": {
-      "viewName": "sap.ui.demo.cart.view.Product",
-      "metadata": "sap.ui.core.Icon",
-      "src": "sap-icon://cart"
-    }
-  };
-
-  itemHeader = {
-    "elementProperties": {
-      "viewName": "sap.ui.demo.cart.view.Product",
-      "metadata": "sap.m.ObjectHeader"
-    }
-  };
-
   async addItemToCart() {
-    await ui5.userInteraction.click(this.addToCartBtn);
+    await ui5.userInteraction.click(itemDetailsSelectors.addToCartBtn);
   }
 
   async showCart() {
-    await ui5.userInteraction.click(this.showCartBtn);
+    await ui5.userInteraction.click(itemDetailsSelectors.showCartBtn);
   }
 
   async getItemPrice() {
-    return await ui5.control.getProperty(this.itemHeader, "number");
+    return await ui5.control.getProperty(itemDetailsSelectors.itemHeader, "number");
   }
 
   async getItemName() {
-    return await ui5.control.getProperty(this.itemHeader, "title");
+    return await ui5.control.getProperty(itemDetailsSelectors.itemHeader, "title");
   }
 }
 
