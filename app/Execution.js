@@ -1,6 +1,6 @@
 const cartPage = require('../pageObject/CartPage.js')
 const itemDetailsPage = require('../pageObject/ItemDetailsPage.js')
-const CheckOutPage = require('../pageObject/CheckOutPage.js')
+const checkOutPage = require('../pageObject/checkOutPage.js')
 const catalogPage = require('../pageObject/CatalogPage.js')
 
 class Application {
@@ -19,22 +19,22 @@ class Application {
   }
 
   async selectPaymentMethod() {
-    await CheckOutPage.pressCreditCardBtn();
+    await checkOutPage.pressCreditCardBtn();
   }
 
   async fillCreditCardData(dataFile) {
-    await CheckOutPage.enterCardholderName(dataFile.creditCardDetails.creditCardDetailsCardholderName);
-    await CheckOutPage.enterCardNumber(dataFile.creditCardDetails.creditCardDetailsCardNumber);
-    await CheckOutPage.enterCardSecurityCode(dataFile.creditCardDetails.creditCardDetailsSecurityCode);
-    await CheckOutPage.enterCardExpirationDate(dataFile.creditCardDetails.creditCardDetailsExpirationDate);
+    await checkOutPage.enterCardholderName(dataFile.creditCardDetails.creditCardDetailsCardholderName);
+    await checkOutPage.enterCardNumber(dataFile.creditCardDetails.creditCardDetailsCardNumber);
+    await checkOutPage.enterCardSecurityCode(dataFile.creditCardDetails.creditCardDetailsSecurityCode);
+    await checkOutPage.enterCardExpirationDate(dataFile.creditCardDetails.creditCardDetailsExpirationDate);
     await common.userInteraction.pressTab();
   }
 
   async fillCustomerData(dataFile) {
-    await CheckOutPage.enterInvoiceAddress(dataFile.InvoiceAddressDetails.invoiceAddress);
-    await CheckOutPage.enterInvoiceAddressCity(dataFile.InvoiceAddressDetails.invoiceAddressCity);
-    await CheckOutPage.enterInvoiceAddressZip(dataFile.InvoiceAddressDetails.invoiceAddressZip);
-    await CheckOutPage.enterInvoiceAddressCountry(dataFile.InvoiceAddressDetails.invoiceAddressCountry);
+    await checkOutPage.enterInvoiceAddress(dataFile.InvoiceAddressDetails.invoiceAddress);
+    await checkOutPage.enterInvoiceAddressCity(dataFile.InvoiceAddressDetails.invoiceAddressCity);
+    await checkOutPage.enterInvoiceAddressZip(dataFile.InvoiceAddressDetails.invoiceAddressZip);
+    await checkOutPage.enterInvoiceAddressCountry(dataFile.InvoiceAddressDetails.invoiceAddressCountry);
   }
 }
 

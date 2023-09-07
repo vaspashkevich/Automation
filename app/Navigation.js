@@ -1,6 +1,6 @@
 const cartPage = require('../pageObject/CartPage.js')
 const itemDetailsPage = require('../pageObject/ItemDetailsPage.js')
-const CheckOutPage = require('../pageObject/CheckOutPage.js')
+const checkOutPage = require('../pageObject/CheckOutPage.js')
 const catalogPage = require('../pageObject/CatalogPage.js')
 
 class Navigation {
@@ -21,23 +21,23 @@ class Navigation {
   }
 
   async confirmOrder() {
-    await CheckOutPage.pressStep2Btn();
+    await checkOutPage.pressStep2Btn();
   }
 
   async confirmPaymentMethod() {
-    await CheckOutPage.pressStep3Btn();
+    await checkOutPage.pressStep3Btn();
   }
 
   async confirmCreditCartData() {
-    await CheckOutPage.pressStep4Btn();
+    await checkOutPage.pressStep4Btn();
   }
 
   async clickOutOfField() {
-    await CheckOutPage.clickOutOfField();
+    await checkOutPage.clickOutOfField();
   }
 
   async confirmCustomerData() {
-    await CheckOutPage.pressStep5Btn();
+    await checkOutPage.pressStep5Btn();
   }
 }
 
