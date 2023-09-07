@@ -3,10 +3,6 @@ const checkOutSelectors = require('../selectors/checkOutSelectors');
 
 class CheckOutPage extends BasePage {
 
-  async clickOutOfField() {
-    await ui5.userInteraction.click(checkOutSelectors.stepOutOfField);
-  }
-
   async pressStep2Btn() {
     await ui5.userInteraction.click(checkOutSelectors.step2Btn);
   }

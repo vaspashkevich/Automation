@@ -7,7 +7,7 @@ class CatalogSelectors {
     }
   };
 
-  CatalogItem = {
+  catalogItem = {
     "elementProperties": {
       "viewName": "sap.ui.demo.cart.view.Category",
       "metadata": "sap.m.ObjectListItem"

@@ -15,7 +15,7 @@ class CatalogPage extends BasePage {
   }
 
   async selectCatalogItem(index) {
-    await ui5.userInteraction.click(catalogSelectors.CatalogItem, index);
+    await ui5.userInteraction.click(catalogSelectors.catalogItem, index);
   }
 }
 
