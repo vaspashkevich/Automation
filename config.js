@@ -4,20 +4,11 @@ exports.config = {
 
   baseUrl: "https://sapui5.hana.ondemand.com/test-resources/sap/m/demokit/cart/webapp/index.html?sap-ui-theme=sap_horizon",
 
-  after: function (capabilities, specs) {
-    // Add the following line to keep the browser open after the test execution.
-    browser.pause(50000); // Adjust the time (in milliseconds) as needed.
-
-    // If you need to perform additional actions after the test execution, add them here.
-
-    // Close the browser after the pause (optional).
-
-  },
-
   reporters: [['allure', {
     outputDir: 'allure-results',
-    disableWebdriverStepsReporting: false,
+    disableWebdriverStepsReporting: true,
     disableWebdriverScreenshotsReporting: false,
+    useCucumberStepReporter: true
 }]],
 
 // afterStep: async function (step, scenario, { error, duration, passed }, context) {
@@ -36,7 +27,6 @@ exports.config = {
 
   framework: "cucumber",
   cucumberOpts: {
-
     require: ['./step-definitions/*.js'],
     // <boolean> show full backtrace for errors
     backtrace: false,
@@ -58,7 +48,6 @@ exports.config = {
     timeout: 60000,
     // <boolean> Enable this config to treat undefined definitions as warnings.
     ignoreUndefinedDefinitions: false
-
   },
 
   maxInstances: 10,
