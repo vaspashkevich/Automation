@@ -18,9 +18,7 @@ exports.config = {
 // },
 
   specs: [
-    // "./spec/addRemoveFromCart.js",
-    // "./spec/applicationTest.js",
-    './features/addItem.feature'
+    './features/*.feature'
   ],
 
   logLevel: 'warn',
