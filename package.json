@@ -18,6 +18,7 @@
   },
   "scripts": {
     "wdio": "wdio run ./config.js",
-    "wdio_cu": "wdio run ./config_cu.js"
+    "wdio_cu": "wdio run ./config_cu.js",
+    "allure": "allure generate ./allure-results --clean && allure open"
   }
 }
