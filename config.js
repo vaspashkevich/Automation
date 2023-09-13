@@ -19,45 +19,21 @@ exports.config = {
     disableWebdriverStepsReporting: false,
     disableWebdriverScreenshotsReporting: false,
 }]],
-
-// afterStep: async function (step, scenario, { error, duration, passed }, context) {
-//   if (error) {
-//     await browser.takeScreenshot();
-//   }
 // },
 
   specs: [
-    // "./spec/addRemoveFromCart.js",
+    "./spec/createNewOrderCart.js"
     // "./spec/applicationTest.js",
-    './features/addItem.feature'
+    // './features/addItem.feature'
   ],
 
   logLevel: 'warn',
 
-  framework: "cucumber",
-  cucumberOpts: {
+  framework: "mocha",
+  mochaOpts: {
 
-    require: ['./step-definitions/*.js'],
-    // <boolean> show full backtrace for errors
-    backtrace: false,
-    // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
-    requireModule: [],
-    // <boolean> invoke formatters without executing steps
-    dryRun: false,
-    // <boolean> abort the run on first failure
-    failFast: false,
-    // <boolean> hide step definition snippets for pending steps
-    snippets: true,
-    // <boolean> hide source uris
-    source: true,
-    // <boolean> fail if there are any undefined or pending steps
-    strict: false,
-    // <string> (expression) only execute the features or scenarios with tags matching the expression
-    tagExpression: '',
-    // <number> timeout for step definitions
-    timeout: 60000,
-    // <boolean> Enable this config to treat undefined definitions as warnings.
-    ignoreUndefinedDefinitions: false
+    bail: true,
+    timeout: 60000
 
   },
 
