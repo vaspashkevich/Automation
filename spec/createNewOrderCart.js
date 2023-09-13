@@ -3,7 +3,7 @@ const goTo = require('../app/Navigation.js')
 
 var orderCart = require('../data/orderCart.json');
 
-describe("Add/remove items to card", async function () {
+describe("Create a new order", async function () {
 
   it('Step 1: Open the application', async function () {
     await goTo.application();
