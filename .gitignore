@@ -130,8 +130,8 @@ dist
 .pnp.*
 
 # allure report files
-allure-report/
 allure-results/
+allure-report/
 
 # qmate report files
 results/

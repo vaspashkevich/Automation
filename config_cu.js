@@ -9,22 +9,28 @@ exports.config = {
 
   baseUrl: "https://sapui5.hana.ondemand.com/test-resources/sap/m/demokit/cart/webapp/index.html?sap-ui-theme=sap_horizon",
 
+  reporters: [['allure', {
+    outputDir: 'allure-results',
+    disableWebdriverStepsReporting: true,
+    disableWebdriverScreenshotsReporting: false,
+    useCucumberStepReporter: true
+}]],
+
   specs: [
+    './features/*.feature',
     // "./spec/addRemoveFromCart.js",
-    "./spec/createNewOrderCart.js"
+    // "./spec/createNewOrderCart.js"
   ],
 
   logLevel: 'warn',
 
-  framework: "mocha",
-  mochaOpts: {
-
-    timeout: 60000, // 60 seconds
-    bail: true,
+  framework: "cucumber",
+  cucumberOpts: {
+    require: ['./step-definitions/*.js'],
+    timeout: 60000
   },
 
   maxInstances: 3,
-
 
   services: [[QmateService], ["chromedriver"]],
   capabilities: [
