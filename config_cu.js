@@ -1,4 +1,9 @@
 const QmateService = require("@sap_oss/wdio-qmate-service");
+const QmateReporter = require("wdio-qmate-reporter").default;
+const QmateReporterConfigHooksProcessor = require("wdio-qmate-reporter").ConfigHooksProcessor;
+const outputDir = "./results";
+const reportName = "report";
+const uxInconsistenciesFolderName = "uxResults"; //???
 
 exports.config = {
 
@@ -12,7 +17,9 @@ exports.config = {
 }]],
 
   specs: [
-    './features/*.feature'
+    './features/*.feature',
+    // "./spec/addRemoveFromCart.js",
+    // "./spec/createNewOrderCart.js"
   ],
 
   logLevel: 'warn',
@@ -23,7 +30,7 @@ exports.config = {
     timeout: 60000
   },
 
-  maxInstances: 10,
+  maxInstances: 3,
 
   services: [[QmateService], ["chromedriver"]],
   capabilities: [
@@ -68,4 +75,58 @@ exports.config = {
   //   }
   // },
 
+  reporters: [
+    [
+        QmateReporter,
+        {
+            title: "Qmate Reporter",
+            outputDir: outputDir,
+            filename: reportName,
+            storeAllScreenshots: true,
+            displaySuiteRetries: true,
+            displayStepRetries: true,
+            displayPassedSuites: true,
+            displaySkippedSuites: true,
+            displayFailedSuites: true,
+            statsMode: "nonEmpty",
+            expandPassedSuites: false,
+            expandSkippedSuites: false,
+            expandFailedSuites: false,
+            entriesPerPage: 10,
+            sortByName: false,
+            uxInconsistenciesFolderName //???
+        }
+    ]
+  ],
+
+  onPrepare: async (config, capabilities) => {
+    try {
+        const qmateReporter = config.reporters.find((entry) => entry[0] === QmateReporter);
+        await QmateReporterConfigHooksProcessor.initOutputDir(qmateReporter[1].outputDir);
+    }
+    catch (error) {
+        console.error(`Could not clear output dir. ${error}`);
+    }
+  },
+
+  // beforeSession: async (config, capabilities, specs) => {
+  //   const qmateReporter = config.reporters.find((entry) => entry[0] === QmateReporter);
+  // },
+
+  afterTest: async (test, context, { error, _result, _duration, _passed, _retries }) => {
+    try {
+        await QmateReporterConfigHooksProcessor.triggerBrowserLogsCollection();
+    }
+    catch (error) {
+        console.error(`Could not collect browser logs. ${error}`);
+    }
+  },
+
+  onComplete: async (exitCode, config, capabilities, results) => {
+    try {
+      await QmateReporterConfigHooksProcessor.writeSuitesToReport(outputDir, reportName, uxInconsistenciesFolderName); //???
+    } catch (error) {
+      console.error(`Could not collect browser logs. ${error}`);
+    }
+  }
 };

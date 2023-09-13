@@ -1,4 +1,4 @@
-// const catalogPage = require('../pageObject/catalogPage.js');
+const catalogPage = require('../pageObject/catalogPage.js');
 const itemDetailsPage = require('../pageObject/ItemDetailsPage.js');
 const cartPage = require('../pageObject/CartPage.js');
 const ShopItemsArray = require('../dataModel/ShopItemsArray.js');
