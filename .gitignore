@@ -129,5 +129,10 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
+# allure report files
+allure-report/
+allure-results/
+
 # qmate report files
 results/
+

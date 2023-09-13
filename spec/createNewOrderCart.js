@@ -20,34 +20,34 @@ describe("Create a new order", async function () {
   });
 
   it('Step 4: Click proceed button', async function () {
-  await goTo.checkoutPage();
+    await goTo.checkoutPage();
   })
 
   it('Step 5: Click Step2 button', async function () {
-  await goTo.confirmOrder();
+    await goTo.confirmOrder();
   })
 
   it('Step 6: Click CreditCard button', async function () {
-  await app.selectPaymentMethod();
+    await app.selectPaymentMethod();
   })
 
   it('Step 7: Click Step3 button', async function () {
-  await goTo.confirmPaymentMethod();
+    await goTo.confirmPaymentMethod();
   })
 
   it('Step 8: Fill in Payment Info', async function () {
-  await app.fillCreditCardData(orderCart);
+    await app.fillCreditCardData(orderCart);
   });
 
   it('Step 9: Click Step4 button', async function () {
-  await goTo.confirmCreditCartData();
+    await goTo.confirmCreditCartData();
   });
 
   it('Step 10: Fill in Invoice Info', async function () {
-  await app.fillCustomerData(orderCart);
+    await app.fillCustomerData(orderCart);
   });
 
   it('Step 11: Click Step 5 button', async function () {
-  await goTo.confirmCustomerData();
+    await goTo.confirmCustomerData();
   });
 });
