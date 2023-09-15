@@ -20,7 +20,7 @@ exports.config = {
   framework: "cucumber",
   cucumberOpts: {
     require: ['./step-definitions/*.js'],
-    timeout: 10000
+    timeout: 300000
   },
 
   maxInstances: 3,

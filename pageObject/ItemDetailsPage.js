@@ -18,6 +18,18 @@ class ItemDetailsPage extends BasePage {
   async getItemName() {
     return await ui5.control.getProperty(itemDetailsSelectors.itemHeader, "title");
   }
+
+  async waitForPageOpened() {
+    await browser.waitUntil(
+      async function () {
+        return (await ui5.element.isVisible(itemDetailsSelectors.addToCartBtn));
+      }, {
+        timeout: this.defaultTimeout,
+        timeoutMsg: `Cart Page has not been loaded. Add to cart Button is not visible`,
+        interval: this.defaultInterval
+      }
+    );
+  }
 }
 
 module.exports = new ItemDetailsPage();

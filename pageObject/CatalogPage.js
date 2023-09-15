@@ -17,6 +17,18 @@ class CatalogPage extends BasePage {
   async selectCatalogItem(index) {
     await ui5.userInteraction.click(catalogSelectors.catalogItem, index);
   }
+
+  async waitForPageOpened() {
+    await browser.waitUntil(
+      async function () {
+        return (await ui5.element.isVisible(catalogSelectors.accesoriesCategory));
+      }, {
+        timeout: this.defaultTimeout,
+        timeoutMsg: `Catalog Page has not been loaded. Accesories category element is not visible`,
+        interval: this.defaultInterval
+      }
+    );
+ };
 }
 
 module.exports = new CatalogPage();

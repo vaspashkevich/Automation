@@ -2,6 +2,7 @@ var BasePage = require("./BasePage");
 const cartSelectors = require('../selectors/cartSelectors.js');
 
 class CartPage extends BasePage {
+
   async pressProceedBtn() {
     await ui5.userInteraction.click(cartSelectors.proceedBtnSelector);
   }
@@ -38,6 +39,18 @@ class CartPage extends BasePage {
   async getCartItemsArray() {
     console.log(await ui5.element.getDisplayed(cartSelectors.ItemInCart));
     return await ui5.element.getAllDisplayed(cartSelectors.ItemInCart);
+  }
+
+  async waitForPageOpened() {
+    await browser.waitUntil(
+      async function () {
+        return (await ui5.element.isVisible(cartSelectors.proceedBtnSelector));
+      }, {
+        timeout: this.defaultTimeout,
+        timeoutMsg: `Cart Page has not been loaded. Proceed Button is not visible`,
+        interval: this.defaultInterval
+      }
+    );
   }
 };
 
