@@ -23,9 +23,9 @@ class CatalogPage extends BasePage {
       async function () {
         return (await ui5.element.isVisible(catalogSelectors.accesoriesCategory));
       }, {
-        timeout: 5000,
+        timeout: this.defaultTimeout,
         timeoutMsg: `Catalog Page has not been loaded. Accesories category element is not visible`,
-        interval: 500
+        interval: this.defaultInterval
       }
     );
  };

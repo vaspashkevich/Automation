@@ -1,4 +1,7 @@
 class BasePage {
+  
+  defaultTimeout = 10000;
+  defaultInterval = 500;
 
   async openApplication() {
     await ui5.navigation.navigateToApplication("categories")

@@ -24,9 +24,9 @@ class ItemDetailsPage extends BasePage {
       async function () {
         return (await ui5.element.isVisible(itemDetailsSelectors.addToCartBtn));
       }, {
-        timeout: 10000,
+        timeout: this.defaultTimeout,
         timeoutMsg: `Cart Page has not been loaded. Add to cart Button is not visible`,
-        interval: 500
+        interval: this.defaultInterval
       }
     );
   }
