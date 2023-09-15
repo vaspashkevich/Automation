@@ -39,6 +39,18 @@ class CartPage extends BasePage {
     console.log(await ui5.element.getDisplayed(cartSelectors.ItemInCart));
     return await ui5.element.getAllDisplayed(cartSelectors.ItemInCart);
   }
+
+  async waitForPageOpened() {
+    await browser.waitUntil(
+      async function () {
+        return (await ui5.element.isVisible(cartSelectors.proceedBtnSelector));
+      }, {
+        timeout: 5000,
+        timeoutMsg: `Page is not open because element "proceedBtnSelector" is not visible`,
+        interval: 500
+      }
+    );
+  }
 };
 
 module.exports = new CartPage();
