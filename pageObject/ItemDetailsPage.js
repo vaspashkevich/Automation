@@ -25,7 +25,7 @@ class ItemDetailsPage extends BasePage {
         return (await ui5.element.isVisible(itemDetailsSelectors.addToCartBtn));
       }, {
         timeout: 10000,
-        timeoutMsg: `Page is not open because element "addToCartBtn" is not visible`,
+        timeoutMsg: `Cart Page has not been loaded. Add to cart Button is not visible`,
         interval: 500
       }
     );

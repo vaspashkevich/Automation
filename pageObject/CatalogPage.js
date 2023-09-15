@@ -1,10 +1,6 @@
 const BasePage = require('../pageObject/BasePage')
 const catalogSelectors = require('../selectors/catalogSelectors.js');
 
-let timeout = 6000;
-let currentTime = 0;
-let step = 1000;
-
 class CatalogPage extends BasePage {
 
   async filterByAvailability() {
@@ -28,15 +24,11 @@ class CatalogPage extends BasePage {
         return (await ui5.element.isVisible(catalogSelectors.accesoriesCategory));
       }, {
         timeout: 5000,
-        timeoutMsg: `Page is not open because element "accesoriesCategory" is not visible`,
+        timeoutMsg: `Catalog Page has not been loaded. Accesories category element is not visible`,
         interval: 500
       }
     );
  };
-
-  async waitForPageOpenedAssert() {
-    await ui5.assertion.expectToBeVisible(catalogSelectors.accesoriesCategory, 0, 5000);
-  }
 }
 
 module.exports = new CatalogPage();

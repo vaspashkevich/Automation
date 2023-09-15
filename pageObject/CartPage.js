@@ -46,7 +46,7 @@ class CartPage extends BasePage {
         return (await ui5.element.isVisible(cartSelectors.proceedBtnSelector));
       }, {
         timeout: 5000,
-        timeoutMsg: `Page is not open because element "proceedBtnSelector" is not visible`,
+        timeoutMsg: `Cart Page has not been loaded. Proceed Button is not visible`,
         interval: 500
       }
     );

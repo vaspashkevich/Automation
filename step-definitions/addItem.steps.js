@@ -13,7 +13,7 @@ Given(/^User had navigated to the application$/, async function() {
 });
 
 When(/^Add item with index (.*) to the cart$/, async function(index) {
-  await catalogPage.waitForPageOpenedAssert();
+  await catalogPage.waitForPageOpened();
   await catalogPage.selectAccesoriesCategory();
   await catalogPage.filterByAvailability();
   await catalogPage.selectCatalogItem(index - 1);
