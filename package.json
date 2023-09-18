@@ -18,6 +18,7 @@
   },
   "scripts": {
     "wdio": "wdio run ./config.js",
-    "allure": "allure generate ./allure-results --clean && allure open"
+    "allure": "allure generate ./allure-results --clean && allure open",
+    "qmate": "wdio run ./qmate-config.js"
   }
 }
