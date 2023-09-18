@@ -7,6 +7,13 @@ class BasePage {
     await ui5.navigation.navigateToApplication("categories")
   }
 
+  async getSelectorWithNewProperty(initialSelector, propertyName, propertyValue) {
+    let elementPropertiesWithNewProperty = Object.assign({}, initialSelector.elementProperties, {[propertyName]: propertyValue});
+    let selectorWithNewProperty = Object.assign({}, initialSelector, elementPropertiesWithNewProperty);
+
+    return selectorWithNewProperty;
+  }
+
   async setReferenceValue(valueName, value) {
     const references = await browser.config.params.import.references;
     await common.assertion.expectDefined(references);
