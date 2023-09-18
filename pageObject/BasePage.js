@@ -8,10 +8,10 @@ class BasePage {
   }
 
   async getSelectorWithNewProperty(initialSelector, propertyName, propertyValue) {
-    let elementPropertiesWithNewProperty = Object.assign({}, initialSelector.elementProperties, {[propertyName]: propertyValue});
-    let selectorWithNewProperty = Object.assign({}, initialSelector, elementPropertiesWithNewProperty);
+    let newSelector = await structuredClone(initialSelector);
+    newSelector.elementProperties[propertyName] = propertyValue;
 
-    return selectorWithNewProperty;
+    return newSelector;
   }
 
   async setReferenceValue(valueName, value) {
