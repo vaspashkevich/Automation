@@ -50,4 +50,20 @@ describe("Create a new order", async function () {
   it('Step 11: Click Step 5 button', async function () {
     await goTo.confirmCustomerData();
   });
+
+  it('Step 12: Click Delivery Type button', async function () {
+    await goTo.deliveryType();
+  });
+
+  it('Step 13: Click Order Summary button', async function () {
+    await goTo.orderSummary();
+  });
+  
+  it('Step 14: Click Order Submit button', async function () {
+    await goTo.orderSubmit();
+  });
+
+  it('Step 15: Click Completion button', async function () {
+    await goTo.Completion();
+  });
 });
