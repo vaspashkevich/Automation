@@ -1,4 +1,5 @@
 class CatalogSelectors {
+
   accesoriesCategory = {
     "elementProperties": {
       "viewName": "sap.ui.demo.cart.view.Home",

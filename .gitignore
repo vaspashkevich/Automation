@@ -128,3 +128,11 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# allure report files
+allure-results/
+allure-report/
+
+# qmate report files
+results/
+

@@ -4,33 +4,26 @@ exports.config = {
 
   baseUrl: "https://sapui5.hana.ondemand.com/test-resources/sap/m/demokit/cart/webapp/index.html?sap-ui-theme=sap_horizon",
 
-  after: function (capabilities, specs) {
-    // Add the following line to keep the browser open after the test execution.
-    browser.pause(50000); // Adjust the time (in milliseconds) as needed.
-
-    // If you need to perform additional actions after the test execution, add them here.
-
-    // Close the browser after the pause (optional).
-
-  },
+  reporters: [['allure', {
+    outputDir: 'allure-results',
+    disableWebdriverStepsReporting: true,
+    disableWebdriverScreenshotsReporting: false,
+    useCucumberStepReporter: true
+}]],
 
   specs: [
-    // "./spec/addRemoveFromCart.js",
-    "./spec/createNewOrderCart.js",
-    // "./spec/applicationTest.js",
+    './features/*.feature'
   ],
 
   logLevel: 'warn',
 
-  framework: "mocha",
-  mochaOpts: {
-
-    timeout: 60000, // 60 seconds
-    bail: true,
+  framework: "cucumber",
+  cucumberOpts: {
+    require: ['./step-definitions/*.js'],
+    timeout: 300000
   },
 
-  maxInstances: 1,
-
+  maxInstances: 3,
 
   services: [[QmateService], ["chromedriver"]],
   capabilities: [
