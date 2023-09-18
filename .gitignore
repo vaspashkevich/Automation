@@ -136,3 +136,5 @@ allure-report/
 # qmate report files
 results/
 
+#vscode settings
+.vscode/

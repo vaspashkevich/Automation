@@ -1,3 +1,7 @@
 {
-    "workbench.editor.tabSizing": "fit"
+  "workbench.editor.tabSizing": "fit",
+
+  "cucumberautocomplete.steps": "./step-definitions/*.js",
+  "cucumberautocomplete.syncfeatures": "/features/*feature",
+  // "cucumberautocomplete.strictGherkinCompletion": true
 }
