@@ -17,23 +17,39 @@ class Navigation {
   }
 
   async checkoutPage() {
-    await cartPage.pressProceedBtn();
+    await cartPage.clickProceedBtn();
   }
 
   async confirmOrder() {
-    await checkOutPage.pressStep2Btn();
+    await checkOutPage.clickStep2Btn();
   }
 
   async confirmPaymentMethod() {
-    await checkOutPage.pressStep3Btn();
+    await checkOutPage.clickStep3Btn();
   }
 
   async confirmCreditCartData() {
-    await checkOutPage.pressStep4Btn();
+    await checkOutPage.clickStep4Btn();
   }
 
   async confirmCustomerData() {
-    await checkOutPage.pressStep5Btn();
+    await checkOutPage.clickStep5Btn();
+  }
+
+  async orderSummary() {
+    await checkOutPage.clickOrderSummaryBtn();
+  }
+
+  async deliveryType() {
+    await checkOutPage.clickDeliveryTypeBtn();
+  }
+
+  async orderSubmit() {
+    await checkOutPage.clickOrderSubmitBtn();
+  }
+
+  async Completion() {
+    await checkOutPage.clickCompletionBtn()
   }
 }
 

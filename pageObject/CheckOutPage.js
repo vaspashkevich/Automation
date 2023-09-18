@@ -3,15 +3,15 @@ const checkOutSelectors = require('../selectors/checkOutSelectors');
 
 class CheckOutPage extends BasePage {
 
-  async pressStep2Btn() {
+  async clickStep2Btn() {
     await ui5.userInteraction.click(checkOutSelectors.step2Btn);
   }
 
-  async pressCreditCardBtn() {
+  async clickCreditCardBtn() {
     await ui5.userInteraction.clickAndRetry(checkOutSelectors.paymentTypeCreditCardBtn);
   }
 
-  async pressStep3Btn() {
+  async clickStep3Btn() {
     await ui5.userInteraction.click(checkOutSelectors.paymentTypeStep3Btn);
   }
 
@@ -35,7 +35,7 @@ class CheckOutPage extends BasePage {
     await ui5.userInteraction.clearAndFill(checkOutSelectors.invoiceAddress, adress);
   }
 
-  async pressStep4Btn() {
+  async clickStep4Btn() {
     await ui5.userInteraction.click(checkOutSelectors.creditCardDetailsStep4Btn);
   }
 
@@ -54,23 +54,23 @@ class CheckOutPage extends BasePage {
     await ui5.userInteraction.clearAndFill(checkOutSelectors.invoiceAddressCountry, country);
   }
 
-  async pressStep5Btn() {
+  async clickStep5Btn() {
     await ui5.userInteraction.click(checkOutSelectors.invoiceAddressCityStep5Btn);
   }
 
-  async pressDeliveryTypeBtn() {
+  async clickDeliveryTypeBtn() {
     await ui5.userInteraction.click(checkOutSelectors.deliveryTypedStandardBtn);
   }
 
-  async pressOrderSummaryBtn() {
+  async clickOrderSummaryBtn() {
     await ui5.userInteraction.click(checkOutSelectors.deliveryTypedOrderSummaryBtn);
   }
 
-  async pressOrderSubmitBtn() {
+  async clickOrderSubmitBtn() {
     await ui5.userInteraction.click(checkOutSelectors.deliveryTypedOrderSubmitBtn);
   }
 
-  async pressCompletionBtn() {
+  async clickCompletionBtn() {
     await ui5.userInteraction.click(checkOutSelectors.orderCreationCompletionBtn);
   }
 }

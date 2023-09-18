@@ -105,27 +105,27 @@ class CheckoutSelectors {
 
   deliveryTypedStandardBtn = {
     "elementProperties": {
-      "viewName": "sap.ui.demo.cart.view.Checkout",
-      "metadata": "sap.m.Button",
-      "id": "*payViaCC-button"
+        "viewName": "sap.ui.demo.cart.view.Checkout",
+        "metadata": "sap.m.Button",
+        "text": "Standard"
     }
-  };
+};
 
   deliveryTypedOrderSummaryBtn = {
     "elementProperties": {
-      "viewName": "sap.ui.demo.cart.view.Checkout",
-      "metadata": "sap.m.Button",
-      "id": "*invoiceStep-nextButton"
+        "viewName": "sap.ui.demo.cart.view.Checkout",
+        "metadata": "sap.m.Button",
+        "id": "*deliveryTypeStep-nextButton"
     }
-  };
+};
 
   deliveryTypedOrderSubmitBtn = {
     "elementProperties": {
-      "viewName": "sap.ui.demo.cart.view.Checkout",
-      "metadata": "sap.m.Button",
-      "id": "*deliveryTypeStep-nextButton"
+        "viewName": "sap.ui.demo.cart.view.Checkout",
+        "metadata": "sap.m.Button",
+        "id": "*submitOrder"
     }
-  };
+};
 
   orderCreationCompletionBtn = {
     "elementProperties": {

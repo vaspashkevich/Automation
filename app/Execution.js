@@ -1,6 +1,6 @@
 const cartPage = require('../pageObject/CartPage.js')
 const itemDetailsPage = require('../pageObject/ItemDetailsPage.js')
-const checkOutPage = require('../pageObject/checkOutPage.js')
+const checkOutPage = require('../pageObject/CheckOutPage.js')
 const catalogPage = require('../pageObject/CatalogPage.js')
 
 class Application {
@@ -19,7 +19,7 @@ class Application {
   }
 
   async selectPaymentMethod() {
-    await checkOutPage.pressCreditCardBtn();
+    await checkOutPage.clickCreditCardBtn();
   }
 
   async fillCreditCardData(dataFile) {
