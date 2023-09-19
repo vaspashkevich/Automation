@@ -15,11 +15,11 @@ Given(/^User had navigated to the application$/, async function() {
   await browser.takeScreenshot();
 });
 
-When(/^Add item with index (.*) to the cart$/, async function(index) {
+When(/^Add item to the cart by name$/, async function() {
   await catalogPage.waitForPageOpened();
   await catalogPage.selectAccesoriesCategory();
   await catalogPage.filterByAvailability();
-  await catalogPage.selectCatalogItem(index - 1);
+  await catalogPage.selectCatalogItemByName("Beam Breaker B-2");
   await itemDetailsPage.waitForPageOpened();
   await itemDetailsPage.addItemToCart();
   await browser.takeScreenshot();
@@ -31,20 +31,19 @@ When(/^Open cart$/, async function() {
   await browser.takeScreenshot();
 });
 
-When(/^Click proceed button$/, async function() {
-	await cartPage.clickProceedBtn();
+When(/^Go to Checkout Page$/, async function() {
+  await cartPage.clickProceedBtn();
+  await checkOutPage.waitForPageOpened();
+  await browser.takeScreenshot();
 });
 
-When(/^Click Step2 button$/, async function() {
-  await checkOutPage.clickStep2Btn()
+When(/^Confirm Cart Items$/, async function() {
+  await checkOutPage.clickStep2Btn();
 });
 
-When(/^Click CreditCard button$/, async function() {
+When(/^Select payment method$/, async function() {
   await checkOutPage.clickCreditCardBtn();
-});
-
-When(/^Click Step3 button$/, async function() {
-	await checkOutPage.clickStep3Btn()
+  await checkOutPage.clickStep3Btn();
 });
 
 When(/^Fill in Payment Info$/, async function() {
@@ -52,11 +51,9 @@ When(/^Fill in Payment Info$/, async function() {
   await checkOutPage.enterCardNumber(dataFile.creditCardDetails.creditCardDetailsCardNumber);
   await checkOutPage.enterCardSecurityCode(dataFile.creditCardDetails.creditCardDetailsSecurityCode);
   await checkOutPage.enterCardExpirationDate(dataFile.creditCardDetails.creditCardDetailsExpirationDate);
+  await browser.takeScreenshot();
   await common.userInteraction.pressTab();
-});
-
-When(/^Click Step4 button$/, async function() {
-  await checkOutPage.clickStep4Btn()
+  await checkOutPage.clickStep4Btn();
 });
 
 When(/^Fill in Invoice Info$/, async function() {
@@ -64,26 +61,18 @@ When(/^Fill in Invoice Info$/, async function() {
   await checkOutPage.enterInvoiceAddressCity(dataFile.InvoiceAddressDetails.invoiceAddressCity);
   await checkOutPage.enterInvoiceAddressZip(dataFile.InvoiceAddressDetails.invoiceAddressZip);
   await checkOutPage.enterInvoiceAddressCountry(dataFile.InvoiceAddressDetails.invoiceAddressCountry);
+  await browser.takeScreenshot();
   await common.userInteraction.pressTab();
+  await checkOutPage.clickStep5Btn();
 });
 
-When(/^Click Step 5 button$/, async function() {
-	await checkOutPage.clickStep5Btn()
+When(/^Choose Delivery Type$/, async function() {
+	await checkOutPage.clickDeliveryTypeBtn();
+  await checkOutPage.clickOrderSummaryBtn();
 });
 
-When(/^Click Delivery Type button$/, async function() {
-	await checkOutPage.clickDeliveryTypeBtn()
-});
-
-When(/^Click Order Summary button$/, async function() {
-	await checkOutPage.clickOrderSummaryBtn()
-});
-
-When(/^Click Order Submit button$/, async function() {
-	await checkOutPage.clickOrderSubmitBtn()
-});
-
-When(/^Click Completion button$/, async function() {
-	await checkOutPage.clickCompletionBtn()
+When(/^Submit the Order$/, async function() {
+	await checkOutPage.clickOrderSubmitBtn();
+  await checkOutPage.clickCompletionBtn();
 });
 

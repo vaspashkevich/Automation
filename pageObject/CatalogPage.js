@@ -14,10 +14,15 @@ class CatalogPage extends BasePage {
     await ui5.userInteraction.click(catalogSelectors.accesoriesCategory);
   }
 
-  async selectCatalogItem(index) {
-    await ui5.userInteraction.click(catalogSelectors.catalogItem, index);
+  async getSelectorByProp(property, value) {
+    catalogSelectors.catalogItem[property] = value;
   }
 
+  async selectCatalogItemByName(name) {
+    let catalogSelectorWithTitle = await this.getSelectorWithNewProperty(catalogSelectors.catalogItem, "title", name); 
+    await ui5.userInteraction.click(catalogSelectorWithTitle);
+  }
+  
   async waitForPageOpened() {
     await browser.waitUntil(
       async function () {
