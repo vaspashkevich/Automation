@@ -2,17 +2,12 @@ Feature: Add item
 
   Scenario: Add Item to cart
     Given User had navigated to the application
-    When Add item with index 1 to the cart
+    When Add item to the cart by name
     When Open cart
-    When Click proceed button
-    When Click Step2 button
-    When Click CreditCard button
-    When Click Step3 button
+    When Go to Checkout Page
+    When Confirm Cart Items
+    When Select payment method
     When Fill in Payment Info
-    When Click Step4 button
     When Fill in Invoice Info
-    When Click Step 5 button
-    When Click Delivery Type button
-    When Click Order Summary button
-    When Click Order Submit button
-    When Click Completion button
+    When Choose Delivery Type
+    When Submit the Order

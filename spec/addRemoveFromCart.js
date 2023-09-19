@@ -1,4 +1,4 @@
-const catalogPage = require('../pageObject/catalogPage.js');
+const catalogPage = require('../pageObject/CatalogPage.js');
 const itemDetailsPage = require('../pageObject/ItemDetailsPage.js');
 const cartPage = require('../pageObject/CartPage.js');
 const ShopItemsArray = require('../dataModel/ShopItemsArray.js');
@@ -15,7 +15,7 @@ describe("Add/remove items to card", async function () {
     await catalogPage.selectAccesoriesCategory();
     await catalogPage.filterByAvailability();
 
-    await catalogPage.selectCatalogItem(0);
+    await catalogPage.selectCatalogItemByName("Beam Breaker B-2");
     let name = await itemDetailsPage.getItemName();
     let price = await itemDetailsPage.getItemPrice();
     await addedItems.addItem(name, price, 1);
@@ -23,7 +23,7 @@ describe("Add/remove items to card", async function () {
   });
 
   it('Step 3: Add second item to the cart', async function () {
-    await catalogPage.selectCatalogItem(1);
+    await catalogPage.selectCatalogItemByName("Beam Breaker B-3");
     let name = await itemDetailsPage.getItemName();
     let price = await itemDetailsPage.getItemPrice();
     await addedItems.addItem(name, price, 1);
@@ -31,7 +31,7 @@ describe("Add/remove items to card", async function () {
   });
 
   it('Step 4: Add second item to the cart', async function () {
-    await catalogPage.selectCatalogItem(1);
+    await catalogPage.selectCatalogItemByName("Beam Breaker B-3");
     let name = await itemDetailsPage.getItemName();
     let price = await itemDetailsPage.getItemPrice();
     await addedItems.addItem(name, price, 1);
@@ -39,7 +39,7 @@ describe("Add/remove items to card", async function () {
   });
 
   it('Step 5: Add third item to the cart', async function () {
-    await catalogPage.selectCatalogItem(2);
+    await catalogPage.selectCatalogItemByName("Camcorder View");
     let name = await itemDetailsPage.getItemName();
     let price = await itemDetailsPage.getItemPrice();
     await addedItems.addItem(name, price, 1);

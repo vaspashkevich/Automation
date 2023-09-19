@@ -11,10 +11,11 @@ class CatalogSelectors {
   catalogItem = {
     "elementProperties": {
       "viewName": "sap.ui.demo.cart.view.Category",
-      "metadata": "sap.m.ObjectListItem"
+      "metadata": "sap.m.ObjectListItem",
+      "title": ""
     }
   };
-
+  
   filterItems = {
     "elementProperties": {
       "viewName": "sap.ui.demo.cart.view.Category",

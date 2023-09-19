@@ -73,5 +73,17 @@ class CheckOutPage extends BasePage {
   async clickCompletionBtn() {
     await ui5.userInteraction.click(checkOutSelectors.orderCreationCompletionBtn);
   }
+
+  async waitForPageOpened() {
+    await browser.waitUntil(
+      async function () {
+        return (await ui5.element.isVisible(checkOutSelectors.step2Btn));
+      }, {
+        timeout: this.defaultTimeout,
+        timeoutMsg: `Checkout Page has not been loaded. Step 2 Button is not visible`,
+        interval: this.defaultInterval
+      }
+    );
+  }
 }
 module.exports = new CheckOutPage();
